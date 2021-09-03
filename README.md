@@ -20,3 +20,74 @@ Step:
 - Create a private repository, invite your class tutor and rysmaadit as collaborator in
 your github with the code, and a README.md with this text and any further
 information to explain your solution
+
+Request and Response Contract:
+- Create movie sample contract
+Method: POST
+URL: http://localhost:8000/movie
+Request body:
+{
+“title”: “Titanic”,
+“slug: “titanic”,
+“description: “lorem ipsum”,
+“duration”: 60,
+“image”: “titanic poster url”
+}
+Response [201]:
+{
+“error”: null,
+“result”: {
+“id”: 1,
+“title”: “Titanic”,
+“slug: “titanic”,
+“description: “lorem ipsum”,
+“duration”: 60,
+“image”: “titanic poster url”
+}
+}
+- Get movie contract
+Method: GET
+URL: http://localhost:8000/movie/titanic
+Response [200]:
+{
+“error”: null,
+“result”: {
+“id”: 1,
+“title”: “Titanic”,
+“slug: “titanic”,
+“description: “lorem ipsum”,
+“duration”: 60,
+“image”: “titanic poster url”
+}
+}
+- Update movie sample contract
+Method: PUT
+URL: http://localhost:8000/movie/titanic
+Request body:
+{
+“title”: “Titanic”,
+“slug: “titanic”,
+“description: “lorem ipsum dolor”,
+“duration”: 60,
+“image”: “titanic poster url”
+}
+Response [200]:
+{
+“error”: null,
+“result”: {
+“id”: 1,
+“title”: “Titanic”,
+“slug: “titanic”,
+“description: “lorem ipsum”,
+“duration”: 60,
+“image”: “titanic poster url”
+}
+}
+- Delete movie contract
+Method: DELETE
+URL: http://localhost:8000/movie/titanic
+Response [200]:
+{
+“error”: null,
+“result”: “success”
+}
