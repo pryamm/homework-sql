@@ -1,10 +1,13 @@
 package config
 
 import (
+	"fmt"
 	"log"
 	"os"
 
 	"github.com/subosito/gotenv"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
 type Config struct {
@@ -33,4 +36,15 @@ func Init() *Config {
 	}
 
 	return appConfig
+}
+
+func Database() (*gorm.DB, error) {
+	dsn := "root:rakamin@tcp(127.21.0.1:3306)/earth?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	if err != nil {
+		fmt.Errorf("Cannot connect db", err)
+		return nil, err
+	}
+
+	return db, nil
 }
